@@ -56,6 +56,7 @@ Examples:
   "title": "Building Agentic Loops for Production",
   "excerpt": "150–200 character excerpt summarizing the article.",
   "author": "Ajeet Chouksey",
+  "authorGitHub": "ajeetchouksey",
   "date": "2026-05-26",
   "updated": null,
   "tags": ["agentic", "architecture", "production"],
