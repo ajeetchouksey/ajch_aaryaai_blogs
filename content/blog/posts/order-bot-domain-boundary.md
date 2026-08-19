@@ -10,7 +10,7 @@ readingTime: 5
 
 > **"Your AI assistant has no idea what its job is — and that's your fault."**
 
-![When your burger bot goes rogue — domain boundary failure in AI assistants](/images/blog/order-bot-domain-boundary.png)
+![When your burger bot goes rogue — domain boundary failure in AI assistants](/content/blog/images/order-bot-domain-boundary.png)
 
 <p style="text-align:center; font-size:0.75rem; color:#64748b; margin-top:-0.75rem;">Image generated with Microsoft Designer (AI)</p>
 

@@ -11,7 +11,7 @@ featured: false
 draft: false
 ---
 
-![Vector Database — The Memory Layer of AI: Store, Understand, Search, Retrieve, Empower AI. Full pipeline from Data Sources through Ingest & Preprocess, Embeddings Generation, Vector Database, Query & Retrieval to AI Response.](/images/blog/vector-database-memory-layer.png)
+![Vector Database — The Memory Layer of AI: Store, Understand, Search, Retrieve, Empower AI. Full pipeline from Data Sources through Ingest & Preprocess, Embeddings Generation, Vector Database, Query & Retrieval to AI Response.](/content/blog/images/vector-database-memory-layer.png)
 
 Your AI assistant just told an employee that the company's parental leave policy allows six months of paid leave.
 

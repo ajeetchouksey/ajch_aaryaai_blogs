@@ -11,7 +11,7 @@ featured: false
 draft: false
 ---
 
-![An LLM observability dashboard — live log stream, a distributed trace with a runaway tool-call loop, and a token-cost meter spiking 818% to $42.71 — all under a green 200 OK status](/images/blog/llm-observability.png)
+![An LLM observability dashboard — live log stream, a distributed trace with a runaway tool-call loop, and a token-cost meter spiking 818% to $42.71 — all under a green 200 OK status](/content/blog/images/llm-observability.png)
 
 <p style="text-align:center; font-size:0.75rem; color:#64748b; margin-top:-0.75rem;">Image generated with Microsoft Designer (AI)</p>
 

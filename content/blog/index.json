@@ -64,7 +64,7 @@
       "readingTime": 5,
       "featured": false,
       "draft": false,
-      "image": "/images/blog/vector-database-memory-layer.png"
+      "image": "/content/blog/images/vector-database-memory-layer.png"
     },
     {
       "slug": "rag-vs-agentic-rag",
@@ -86,7 +86,7 @@
       "readingTime": 9,
       "featured": true,
       "draft": false,
-      "image": "/images/blog/rag-vs-agentic-rag.jpg"
+      "image": "/content/blog/images/rag-vs-agentic-rag.jpg"
     },
     {
       "slug": "llm-observability",
@@ -107,7 +107,7 @@
       "readingTime": 8,
       "featured": false,
       "draft": false,
-      "image": "/images/blog/llm-observability.png"
+      "image": "/content/blog/images/llm-observability.png"
     },
     {
       "slug": "context-budget-rule",
@@ -137,7 +137,7 @@
       "authorGitHub": "ajeetchouksey",
       "date": "2026-06-15",
       "updated": null,
-      "image": "/images/blog/order-bot-domain-boundary.png",
+      "image": "/content/blog/images/order-bot-domain-boundary.png",
       "tags": [
         "ai-architecture",
         "guardrails",
