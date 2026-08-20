@@ -6,7 +6,7 @@ This repository is the canonical content source for the Aarya blog. Posts are pu
 
 - `content/blog/posts/` — blog post markdown files
 - `content/blog/index.json` — canonical blog index manifest
-- `.github/agents/` — blog content agents and workflow guidance
+- `.claude/agents/` — blog content agents (canonical Claude Code subagent format)
 - `.github/workflows/validate-content.yml` — automated validation on PR/push
 - `scripts/validate-content.mjs` — local and CI schema validation
 
@@ -50,7 +50,7 @@ No direct push to `main` for new blog content. No untracked "just publish this" 
 
 ## How the blog agents work
 
-The repo includes specialized agents under `.github/agents/`.
+The repo includes specialized agents under `.claude/agents/`.
 
 ### Content Lead
 
@@ -87,7 +87,7 @@ Responsibilities:
 
 ### Security/AppSec gate
 
-Before publication, content must pass a security and quality gate.
+Handled by **AppSec Engineer** (`.claude/agents/appsec-engineer.md`) — a hard gate Content Lead delegates to before Release Engineer writes anything. Before publication, content must pass a security and quality gate.
 
 This usually includes:
 
@@ -104,7 +104,7 @@ The repo has a CI workflow at `.github/workflows/validate-content.yml` that runs
 Local validation:
 
 ```bash
-node scripts/validate-content.mjs content/blog/index.json content/blog/posts
+node scripts/validate-content.mjs content/blog/index.json content/blog/posts/*.md
 ```
 
 This checks the blog manifest and content structure. It also catches invalid JSON, missing required fields, malformed slugs, and broken references.
@@ -152,7 +152,7 @@ Add the post entry to `content/blog/index.json` with:
 Run:
 
 ```bash
-node scripts/validate-content.mjs content/blog/index.json content/blog/posts
+node scripts/validate-content.mjs content/blog/index.json content/blog/posts/*.md
 ```
 
 Fix any reported issues before opening a PR.
@@ -240,8 +240,9 @@ If you want to publish a post, start with the issue, then follow the agent + val
 
 ## Related references
 
-- `.github/agents/content-lead.agent.md`
-- `.github/agents/tech-writer.agent.md`
-- `.github/agents/release-engineer.agent.md`
+- `.claude/agents/content-lead.md`
+- `.claude/agents/tech-writer.md`
+- `.claude/agents/release-engineer.md`
+- `.claude/agents/appsec-engineer.md`
 - `.github/workflows/validate-content.yml`
 - `scripts/validate-content.mjs`
