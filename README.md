@@ -7,6 +7,7 @@ This repository is the canonical content source for the Aarya blog. Posts are pu
 - `content/blog/posts/` — blog post markdown files
 - `content/blog/index.json` — canonical blog index manifest
 - `.claude/agents/` — blog content agents (canonical Claude Code subagent format)
+- `.claude/skills/platform-vocabulary/SKILL.md` — canonical architectural terms Content Lead and Tech Writer require every post to use consistently
 - `.github/workflows/validate-content.yml` — automated validation on PR/push
 - `scripts/validate-content.mjs` — local and CI schema validation
 
@@ -244,5 +245,6 @@ If you want to publish a post, start with the issue, then follow the agent + val
 - `.claude/agents/tech-writer.md`
 - `.claude/agents/release-engineer.md`
 - `.claude/agents/appsec-engineer.md`
+- `.claude/skills/platform-vocabulary/SKILL.md`
 - `.github/workflows/validate-content.yml`
 - `scripts/validate-content.mjs`
