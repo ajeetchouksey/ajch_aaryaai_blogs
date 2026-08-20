@@ -19,4 +19,7 @@ jobs:
         with:
           node-version: '22'
       - name: Validate content schema
-        run: node scripts/validate-content.mjs content/blog/index.json content/blog/posts
+        shell: bash
+        run: |
+          shopt -s nullglob
+          node scripts/validate-content.mjs content/blog/index.json content/blog/posts/*.md
