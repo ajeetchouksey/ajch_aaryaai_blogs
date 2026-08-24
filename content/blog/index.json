@@ -1,6 +1,27 @@
 {
   "posts": [
     {
+      "slug": "the-boring-interface",
+      "title": "If Your Function Is Named callAnthropic(), You Don't Have an Abstraction",
+      "excerpt": "You've named a function after a vendor at least once. Here's why that's not a style nit — it's the reason swapping models later means touching every call site instead of one.",
+      "author": "Ajeet Chouksey",
+      "authorGitHub": "ajeetchouksey",
+      "date": "2026-08-24",
+      "updated": null,
+      "tags": [
+        "boring-interface",
+        "named-framework",
+        "ai-architecture",
+        "vendor-lock-in",
+        "llm-abstraction",
+        "cca-f"
+      ],
+      "category": "AI Architecture",
+      "readingTime": 6,
+      "featured": true,
+      "draft": false
+    },
+    {
       "slug": "adlc-engineering-discipline-for-ai-agents",
       "title": "The ADLC: A Software Engineering Discipline for AI Agents",
       "excerpt": "SDLC gave software engineering its rigour. AI agents need the same treatment. Here's the Agent Development Life Cycle — six stages that turn agent building from craft into discipline.",
