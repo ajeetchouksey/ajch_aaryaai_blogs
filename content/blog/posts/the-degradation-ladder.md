@@ -1,13 +1,13 @@
 ---
 title: "'Mentor Unavailable' Is Not a Fallback Strategy"
-excerpt: "You've written this code: one try, one catch, one error response, done. Here's the Degradation Ladder — the four rungs between a clean success and a wall, and why rung 4 is the one you're probably shipping by default."
+excerpt: "You've written this code: one try, one catch, one error response, done. A model can also fail by returning 200 OK and lying about the shape — here's the Degradation Ladder, and why 'it responded' isn't the same as 'it worked.'"
 author: "Ajeet Chouksey"
 authorGitHub: "ajeetchouksey"
 date: "2026-08-24"
 updated: null
-tags: ["degradation-ladder", "named-framework", "reliability", "fallback-design", "cca-f", "production-ai"]
-category: "Engineering"
-readingTime: 8
+tags: ["degradation-ladder", "named-framework", "reliability", "fallback-design", "structured-output", "cca-f"]
+category: "AI Architecture"
+readingTime: 10
 featured: true
 draft: false
 ---
@@ -38,6 +38,27 @@ Most AI features are built with exactly one success path and exactly one failure
 You already know the tell, because you've seen it in your own code review comments — or you've written it yourself and approved the PR anyway. One `catch` block, one error response, done. Nobody asked "what's the second-best answer we could give here?" because the ticket only scoped the happy path.
 
 **A system with one failure mode has zero failure modes it actually controls — it just has an outage with extra steps.**
+
+## The Failure That Never Errors
+
+Here's where this stops being a generic API-reliability problem and becomes an AI one specifically: a normal dependency fails loudly. A database connection refuses, a payment gateway times out, an HTTP call returns 500 — you catch it, and you know, unambiguously, that something is wrong. A model call can fail while returning 200 OK, with a body that looks exactly like success until something downstream tries to use it.
+
+The real mentor code has two separate `catch` blocks for exactly this reason. The first is the one already shown — the network call itself failing. The second sits right after it:
+
+```ts
+try {
+  // Strip possible markdown code fences the model may still produce
+  const cleaned = rawText.replace(/^```json\n?/i, '').replace(/```$/m, '').trim();
+  parsed = JSON.parse(cleaned) as typeof parsed;
+} catch {
+  console.error('anthropic-plan-parse-failed');
+  return json({ error: 'mentor_unavailable' }, 503, origin);
+}
+```
+
+The request succeeded. The model responded. Nothing about the network layer says anything is wrong. The failure is that the response didn't satisfy a contract nobody outside the model can enforce in advance — it wrapped the JSON in markdown fences it forgot to strip, or drifted from the schema, or just wrote prose where structure was asked for. A REST API doesn't have this failure mode: a database response either matches its schema or the client library throws before your code ever sees it. A model's response is just text, right up until something downstream decides whether to trust it.
+
+And look at what both catches return: the same `mentor_unavailable`. The system can't tell "the call never landed" from "the call landed and the model answered wrong" — which means it can't route them to different rungs, even though they have completely different recovery odds. A network failure might resolve itself on retry. A parse failure usually won't: whatever confused the model the first time is typically still there on attempt two, because you sent it the same prompt. Rung 1 — serve the last known-good plan — is a strong move either way. Rung 3 — queue and retry — is a reasonable bet on the first failure and a weak one on the second. Collapsing both into one error string throws away the one piece of information that would tell you which rung actually makes sense.
 
 ## The Degradation Ladder
 
