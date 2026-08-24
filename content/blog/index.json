@@ -1,6 +1,69 @@
 {
   "posts": [
     {
+      "slug": "the-degradation-ladder",
+      "title": "Your Retry Loop Is Not a Fallback Strategy",
+      "excerpt": "Retrying a failed model call three times and then throwing a 500 isn't resilience — it's denial with extra steps. Here's the five-rung ladder that separates systems that degrade gracefully from ones that just go dark.",
+      "author": "Ajeet Chouksey",
+      "authorGitHub": "ajeetchouksey",
+      "date": "2026-08-24",
+      "updated": null,
+      "tags": [
+        "degradation-ladder",
+        "named-framework",
+        "ai-architecture",
+        "resilience",
+        "fallback-strategy",
+        "cca-f"
+      ],
+      "category": "AI Architecture",
+      "readingTime": 7,
+      "featured": true,
+      "draft": false
+    },
+    {
+      "slug": "the-boring-interface",
+      "title": "If Your Function Is Named callAnthropic(), You Don't Have an Abstraction",
+      "excerpt": "You've named a function after a vendor at least once. Here's why that's not a style nit — it's the reason swapping models later means touching every call site instead of one.",
+      "author": "Ajeet Chouksey",
+      "authorGitHub": "ajeetchouksey",
+      "date": "2026-08-24",
+      "updated": null,
+      "tags": [
+        "boring-interface",
+        "named-framework",
+        "ai-architecture",
+        "vendor-lock-in",
+        "llm-abstraction",
+        "cca-f"
+      ],
+      "category": "AI Architecture",
+      "readingTime": 6,
+      "featured": true,
+      "draft": false
+    },
+    {
+      "slug": "microsoft-foundry-two-boundary-model",
+      "title": "Microsoft Foundry Has Two Boundaries. Most Teams Only Use One.",
+      "excerpt": "Foundry's architecture has a governance boundary (account) and an isolation boundary (project), and the choice to allow multiple projects is locked at resource creation time.",
+      "author": "Ajeet Chouksey",
+      "authorGitHub": "ajeetchouksey",
+      "date": "2026-08-24",
+      "updated": null,
+      "tags": [
+        "microsoft-foundry",
+        "azure-ai-foundry",
+        "ai-architecture",
+        "named-framework",
+        "resource-governance"
+      ],
+      "category": "AI Architecture",
+      "readingTime": 8,
+      "featured": false,
+      "draft": false,
+      "image": "/content/blog/images/foundry_two_boundary_model.png"
+    },
+    {
       "slug": "adlc-engineering-discipline-for-ai-agents",
       "title": "The ADLC: A Software Engineering Discipline for AI Agents",
       "excerpt": "SDLC gave software engineering its rigour. AI agents need the same treatment. Here's the Agent Development Life Cycle — six stages that turn agent building from craft into discipline.",
