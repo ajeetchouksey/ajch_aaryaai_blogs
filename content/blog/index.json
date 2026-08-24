@@ -1,6 +1,27 @@
 {
   "posts": [
     {
+      "slug": "the-degradation-ladder",
+      "title": "'Mentor Unavailable' Is Not a Fallback Strategy",
+      "excerpt": "When the model call fails, most systems return one error and stop. Here's the Degradation Ladder — the four rungs between a clean success and a wall — with two real production incidents.",
+      "author": "Ajeet Chouksey",
+      "authorGitHub": "ajeetchouksey",
+      "date": "2026-08-24",
+      "updated": null,
+      "tags": [
+        "degradation-ladder",
+        "named-framework",
+        "reliability",
+        "fallback-design",
+        "cca-f",
+        "production-ai"
+      ],
+      "category": "Engineering",
+      "readingTime": 7,
+      "featured": true,
+      "draft": false
+    },
+    {
       "slug": "adlc-engineering-discipline-for-ai-agents",
       "title": "The ADLC: A Software Engineering Discipline for AI Agents",
       "excerpt": "SDLC gave software engineering its rigour. AI agents need the same treatment. Here's the Agent Development Life Cycle — six stages that turn agent building from craft into discipline.",
