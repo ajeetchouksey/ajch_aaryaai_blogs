@@ -1,9 +1,9 @@
 name: Validate blog content
 on:
   pull_request:
-    paths:
-      - 'content/blog/**'
-      - 'scripts/validate-content.mjs'
+    # No path filter here on purpose: "validate" is a required status check
+    # on main, so every PR needs it to report — a path filter would leave
+    # PRs that don't touch content/blog/ permanently stuck at "Expected".
   push:
     branches: [main]
     paths:
