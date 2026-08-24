@@ -1,0 +1,8 @@
+# Governance files require owner review — these control how content
+# gets validated and published, not just what gets published.
+/.github/                  @ajeetchouksey
+/scripts/                  @ajeetchouksey
+/.claude/agents/           @ajeetchouksey
+
+# Everything else (content/) has no CODEOWNERS entry on purpose —
+# this repo is meant to stay contributor-friendly for post content.
