@@ -1,18 +1,20 @@
 ---
 title: "'Mentor Unavailable' Is Not a Fallback Strategy"
-excerpt: "When the model call fails, most systems return one error and stop. Here's the Degradation Ladder — the four rungs between a clean success and a wall — with two real production incidents."
+excerpt: "You've written this code: one try, one catch, one error response, done. Here's the Degradation Ladder — the four rungs between a clean success and a wall, and why rung 4 is the one you're probably shipping by default."
 author: "Ajeet Chouksey"
 authorGitHub: "ajeetchouksey"
 date: "2026-08-24"
 updated: null
 tags: ["degradation-ladder", "named-framework", "reliability", "fallback-design", "cca-f", "production-ai"]
 category: "Engineering"
-readingTime: 7
+readingTime: 8
 featured: true
 draft: false
 ---
 
-Somewhere in this platform's own Worker code sits this:
+You've written this code. Maybe not this exact code, but the shape of it: a `try`, a `catch`, one error response, done. It passed review because the happy path worked in the demo, and the ticket never asked "what happens when it doesn't." You shipped it and moved on. A month later, something upstream hiccups — a timeout, a rate limit, a quota you didn't know existed — and you find out in production what your fallback strategy actually was. It was nothing. It was a wall.
+
+Here's what that wall looks like in this platform's own Worker code, powering an AI study-plan feature:
 
 ```ts
 try {
@@ -23,9 +25,9 @@ try {
 }
 ```
 
-That's the entire failure strategy for an AI study-plan feature. The model call fails for any reason — a timeout, an overloaded response, a bad API key — and the user gets one JSON object: `mentor_unavailable`. No cached plan from their last session. No simplified response. No "try again in a minute" with an actual retry. Just a wall.
+The model call fails for any reason — a timeout, an overloaded response, a bad API key — and the user gets one JSON object: `mentor_unavailable`. No cached plan from their last session. No simplified response. No "try again in a minute" with an actual retry.
 
-I wrote that code. It shipped. It works exactly as designed — which is the problem. A system that can only succeed is a system waiting to surprise you.
+I wrote that code. It works exactly as designed — which is the problem. A system that can only succeed is a system waiting to surprise you, and if you've shipped an AI feature, you almost certainly have your own version of this sitting in production right now.
 
 ---
 
@@ -33,7 +35,7 @@ I wrote that code. It shipped. It works exactly as designed — which is the pro
 
 Most AI features are built with exactly one success path and exactly one failure path, and the failure path is always the same shape: catch the error, log it, return a generic 5xx. Call it the **one-bit failure mode** — the system can tell you *that* it failed, but it has no vocabulary for *how badly*, and no plan for what to do about it.
 
-The tell is always the same in code review: one `catch` block, one error response, done. Nobody asked "what's the second-best answer we could give here?" because the ticket only scoped the happy path.
+You already know the tell, because you've seen it in your own code review comments — or you've written it yourself and approved the PR anyway. One `catch` block, one error response, done. Nobody asked "what's the second-best answer we could give here?" because the ticket only scoped the happy path.
 
 **A system with one failure mode has zero failure modes it actually controls — it just has an outage with extra steps.**
 
@@ -54,22 +56,13 @@ The rule that makes this a framework and not just a list: **you fail down the la
 
 `mentor_unavailable` is a rung 4 response wearing a rung 1 problem's clothes. The mentor endpoint generates study plans from a user's existing exam progress — data the Worker already has in D1. There was never a rung-1 or rung-2 option missing because the data wasn't available. It was missing because the code only had one branch.
 
-## A Second Incident, Same Ladder, Rung 1 This Time
+## The Quota You Didn't Know You Had
 
-Three weeks after that code shipped, a different Worker in the same repo hit a different failure — and this time the ladder held.
+There's a second failure class every practitioner meets sooner or later, and it's sneakier than a model timeout: the dependency that works perfectly in every test you ran, then stops working under real usage because it had a limit nobody told you about. A rate limit. A quota. A free tier with a ceiling that only shows up once actual traffic hits it. You never budgeted for it because it never showed up in staging.
 
-The GA4 analytics proxy (`aarya-ga4-proxy`) checks a Cloudflare KV store on every single request — once to verify the caller is the platform owner, once for the GA4 access token, once for the cached report response. Under normal traffic that's cheap. Under a realtime dashboard polling every 30 seconds across five open tabs, it adds up:
+This platform hit exactly that, this week — a realtime dashboard, left open and quietly polling in the background (the same "nobody budgets for this" traffic pattern), ran a Cloudflare Worker past its daily KV-read quota. What came back wasn't a clean error. It was an uncaught exception with no CORS headers attached, which meant the browser couldn't even read the response — every failed request just showed up as a bare, diagnosis-free `Failed to fetch`. That's rung 4 by accident, which is the worst version of rung 4: nobody chose it, it just happened to whatever code path didn't have a `catch`.
 
-```
-Error: KV get() limit exceeded for the day.
-    at verifyOwner (ga4-proxy.js:41:27)
-```
-
-Cloudflare's free-tier KV quota is 100,000 reads per day. The Worker hit it. And because that `verifyOwner` call sat outside any `try/catch`, the exception propagated all the way to Cloudflare's platform layer, which returned a raw `500` with no CORS headers attached — the browser couldn't even read the response body, so every failed request surfaced in the UI as a bare, diagnosis-free `Failed to fetch`.
-
-That's rung 4 by accident — the worst kind, because nobody chose it. The fix was two changes, both rung 1:
-
-**First, an in-memory cache tier in front of every KV read.** Cloudflare keeps a Worker isolate warm across many requests. A simple `Map` at module scope, checked before KV and populated after, meant repeat requests from the same warm isolate stopped touching KV entirely:
+The fix was rung 1, and it generalizes past this one Worker: **cache the thing you're checking on every request, so most requests never touch the thing that has a limit.** Concretely, a small in-memory cache in front of every read to the rate-limited store, checked first and only falling through on a miss:
 
 ```ts
 async function cachedKvGet(kv: KVNamespace, key: string, ttlSeconds: number): Promise<string | null> {
@@ -81,9 +74,7 @@ async function cachedKvGet(kv: KVNamespace, key: string, ttlSeconds: number): Pr
 }
 ```
 
-Auth checks cached for 10 minutes. Access tokens for 55. Report data for 15. None of it changed the actual freshness guarantees — the in-memory TTL matches the KV TTL exactly — it just meant the *second* request in a warm isolate stopped paying the KV cost the *first* one already paid.
-
-**Second, the exception got a name.** Instead of letting a KV-quota error propagate uncaught, the catch block now recognizes it specifically and returns a real, CORS-correct response:
+Nothing exotic — the cache TTLs match what the underlying store already guaranteed, so nothing gets staler than it already was. It just means the second request stops paying a cost the first one already paid. And the exception that started all this got a name instead of being left to propagate:
 
 ```ts
 if (msg.toLowerCase().includes('limit exceeded')) {
@@ -91,11 +82,13 @@ if (msg.toLowerCase().includes('limit exceeded')) {
 }
 ```
 
-Same shape as `mentor_unavailable` — a labeled 503, not a mystery. The difference is everything upstream of it: the in-memory tier means this response fires rarely, and when it does fire, the frontend can say something a human can act on instead of a browser-generated dead end.
+Same shape as `mentor_unavailable` — a labeled 503, not a mystery — except this one rarely fires at all now, and when it does, it tells whoever's looking exactly what happened instead of handing them a dead end.
+
+If you've ever debugged a "random" failure that turned out to be a quota you didn't know existed, this is the same story with your dependency's name substituted in.
 
 ## Retrofitting Rung 1 into the Mentor Endpoint
 
-The honest version of this post admits the mentor endpoint still isn't fixed. But the Degradation Ladder makes the fix specific instead of aspirational:
+The honest version of this post admits the mentor endpoint still isn't fixed. But the Degradation Ladder turns "we should add fallbacks" from a good intention into three specific questions you can ask about any feature you own — I asked them about this one:
 
 - **Rung 1 — Serve Stale.** The Worker already persists successful mentor-plan responses per user in D1 for analytics. Reusing that same row as a cache — return the last plan, labeled `"cached": true, "generatedAt": "..."` — turns most Anthropic outages from a wall into a slightly stale answer.
 - **Rung 2 — Serve Degraded.** If no prior plan exists, a rules-based plan built from the user's existing `DomainReadiness` scores (already computed client-side for the study dashboard) beats nothing — no model call required.

@@ -3,7 +3,7 @@
     {
       "slug": "the-degradation-ladder",
       "title": "'Mentor Unavailable' Is Not a Fallback Strategy",
-      "excerpt": "When the model call fails, most systems return one error and stop. Here's the Degradation Ladder — the four rungs between a clean success and a wall — with two real production incidents.",
+      "excerpt": "You've written this code: one try, one catch, one error response, done. Here's the Degradation Ladder — the four rungs between a clean success and a wall, and why rung 4 is the one you're probably shipping by default.",
       "author": "Ajeet Chouksey",
       "authorGitHub": "ajeetchouksey",
       "date": "2026-08-24",
@@ -17,7 +17,7 @@
         "production-ai"
       ],
       "category": "Engineering",
-      "readingTime": 7,
+      "readingTime": 8,
       "featured": true,
       "draft": false
     },
