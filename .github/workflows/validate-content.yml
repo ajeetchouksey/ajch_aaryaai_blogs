@@ -23,3 +23,36 @@ jobs:
         run: |
           shopt -s nullglob
           node scripts/validate-content.mjs content/blog/index.json content/blog/posts/*.md
+
+  # Notifies ajch_platform to regenerate public/content/stats.json (and,
+  # once it lands, relationships.json) — near-real-time counterpart to the
+  # 6h scheduled safety net in ajch_platform's content-intelligence-sync.yml.
+  # Only fires on an actual push to main, not on PRs.
+  #
+  # REQUIRES one-time manual setup: this repo's own Settings > Secrets and
+  # variables > Actions needs GH_APP_ID and GH_APP_PRIVATE_KEY added — the
+  # same aarya-platform-bot App credentials already used by
+  # ajch_platform/.github/workflows/sync-vertical-agents.yml, since GitHub
+  # secrets don't span repos even for the same App installation.
+  notify-platform:
+    name: Notify ajch_platform of content update
+    needs: validate
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mint App installation token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: ajeetchouksey
+          repositories: ajch_platform
+
+      - name: Dispatch content-updated event
+        run: |
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/ajeetchouksey/ajch_platform/dispatches" \
+            -d '{"event_type":"content-updated","client_payload":{"vertical":"blog","sha":"${{ github.sha }}"}}'
