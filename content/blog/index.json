@@ -19,7 +19,12 @@
       "category": "AI Architecture",
       "readingTime": 7,
       "featured": true,
-      "draft": false
+      "draft": false,
+      "taxonomyIds": [
+        "degradation-ladder",
+        "ai-architecture",
+        "cca-f"
+      ]
     },
     {
       "slug": "the-boring-interface",
@@ -40,7 +45,12 @@
       "category": "AI Architecture",
       "readingTime": 6,
       "featured": true,
-      "draft": false
+      "draft": false,
+      "taxonomyIds": [
+        "boring-interface",
+        "ai-architecture",
+        "cca-f"
+      ]
     },
     {
       "slug": "microsoft-foundry-two-boundary-model",
@@ -61,7 +71,11 @@
       "readingTime": 8,
       "featured": true,
       "draft": false,
-      "image": "/content/blog/images/foundry_two_boundary_model.png"
+      "image": "/content/blog/images/foundry_two_boundary_model.png",
+      "taxonomyIds": [
+        "azure-ai-foundry",
+        "ai-architecture"
+      ]
     },
     {
       "slug": "adlc-engineering-discipline-for-ai-agents",
@@ -83,7 +97,13 @@
       "category": "Engineering",
       "readingTime": 9,
       "featured": true,
-      "draft": false
+      "draft": false,
+      "taxonomyIds": [
+        "agents",
+        "llmops",
+        "production",
+        "observability"
+      ]
     },
     {
       "slug": "ai-architecture-blueprint-multi-agent-privacy-first",
@@ -105,7 +125,14 @@
       "category": "Engineering",
       "readingTime": 8,
       "featured": true,
-      "draft": false
+      "draft": false,
+      "taxonomyIds": [
+        "ai-architecture",
+        "production",
+        "llm",
+        "agents",
+        "observability"
+      ]
     },
     {
       "slug": "what-is-a-vector-database",
@@ -127,7 +154,12 @@
       "readingTime": 5,
       "featured": false,
       "draft": false,
-      "image": "/content/blog/images/vector-database-memory-layer.png"
+      "image": "/content/blog/images/vector-database-memory-layer.png",
+      "taxonomyIds": [
+        "rag",
+        "llm",
+        "enterprise-ai"
+      ]
     },
     {
       "slug": "rag-vs-agentic-rag",
@@ -149,7 +181,15 @@
       "readingTime": 9,
       "featured": true,
       "draft": false,
-      "image": "/content/blog/images/rag-vs-agentic-rag.jpg"
+      "image": "/content/blog/images/rag-vs-agentic-rag.jpg",
+      "taxonomyIds": [
+        "rag",
+        "agentic-execution-layer",
+        "enterprise-ai",
+        "architecture",
+        "llm",
+        "agents"
+      ]
     },
     {
       "slug": "llm-observability",
@@ -170,7 +210,12 @@
       "readingTime": 8,
       "featured": false,
       "draft": false,
-      "image": "/content/blog/images/llm-observability.png"
+      "image": "/content/blog/images/llm-observability.png",
+      "taxonomyIds": [
+        "observability",
+        "llmops",
+        "platform-engineering"
+      ]
     },
     {
       "slug": "context-budget-rule",
@@ -190,7 +235,11 @@
       "category": "AI Architecture",
       "readingTime": 7,
       "featured": true,
-      "draft": false
+      "draft": false,
+      "taxonomyIds": [
+        "context-budget-rule",
+        "cca-f"
+      ]
     },
     {
       "slug": "order-bot-domain-boundary",
@@ -211,7 +260,12 @@
       "category": "AI Architecture",
       "readingTime": 5,
       "featured": false,
-      "draft": false
+      "draft": false,
+      "taxonomyIds": [
+        "ai-architecture",
+        "domain-boundary",
+        "platform-engineering"
+      ]
     },
     {
       "slug": "github-governance-best-practices",
@@ -231,7 +285,11 @@
       "category": "DevOps",
       "readingTime": 7,
       "featured": false,
-      "draft": false
+      "draft": false,
+      "taxonomyIds": [
+        "devops",
+        "platform-engineering"
+      ]
     },
     {
       "slug": "guardrails-are-not-constraints",
@@ -251,7 +309,11 @@
       "category": "Opinions",
       "readingTime": 3,
       "featured": false,
-      "draft": false
+      "draft": false,
+      "taxonomyIds": [
+        "responsible-ai",
+        "platform-engineering"
+      ]
     },
     {
       "slug": "agents-are-a-new-execution-layer",
@@ -270,7 +332,11 @@
       "category": "AI Architecture",
       "readingTime": 6,
       "featured": false,
-      "draft": false
+      "draft": false,
+      "taxonomyIds": [
+        "agents",
+        "architecture"
+      ]
     },
     {
       "slug": "sqconfig",
@@ -286,7 +352,10 @@
         "sonarqube"
       ],
       "date": "2020-07-15",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "sonarqube"
+      ]
     },
     {
       "slug": "azurebastion",
@@ -303,7 +372,10 @@
         "azureexam"
       ],
       "date": "2020-05-21",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure"
+      ]
     },
     {
       "slug": "devopsattitude",
@@ -319,7 +391,10 @@
         "devops"
       ],
       "date": "2020-05-20",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "devops"
+      ]
     },
     {
       "slug": "secazdopipelines",
@@ -339,7 +414,10 @@
         "devsecops"
       ],
       "date": "2020-04-27",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure"
+      ]
     },
     {
       "slug": "secnwaz",
@@ -359,7 +437,10 @@
         "architecture"
       ],
       "date": "2019-12-02",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "architecture"
+      ]
     },
     {
       "slug": "terrafaform1",
@@ -376,7 +457,10 @@
         "iac"
       ],
       "date": "2019-11-27",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "iac"
+      ]
     },
     {
       "slug": "azdovar",
@@ -394,7 +478,11 @@
         "vsts"
       ],
       "date": "2019-07-05",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "devops",
+        "vsts"
+      ]
     },
     {
       "slug": "managedeploymenthistory",
@@ -410,7 +498,8 @@
         "arm"
       ],
       "date": "2019-04-15",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": []
     },
     {
       "slug": "cibranch",
@@ -427,7 +516,10 @@
         "devops"
       ],
       "date": "2018-12-29",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "devops"
+      ]
     },
     {
       "slug": "sqasazurewebapps",
@@ -446,7 +538,12 @@
         "iac"
       ],
       "date": "2018-11-13",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "sonarqube",
+        "azure-sql",
+        "iac"
+      ]
     },
     {
       "slug": "vstsextensionsoapui",
@@ -463,7 +560,10 @@
         "soap-ui"
       ],
       "date": "2018-05-31",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "vsts"
+      ]
     },
     {
       "slug": "designscomputeinfra-3",
@@ -482,7 +582,12 @@
         "vm-scale-set"
       ],
       "date": "2018-04-22",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "compute",
+        "70-535",
+        "70-533"
+      ]
     },
     {
       "slug": "pestertestinvstsci",
@@ -500,7 +605,12 @@
         "pestertest"
       ],
       "date": "2018-03-29",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "devops",
+        "iac",
+        "pestertest"
+      ]
     },
     {
       "slug": "designscomputeinfra-1",
@@ -518,7 +628,12 @@
         "70-533"
       ],
       "date": "2018-03-28",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "compute",
+        "70-535",
+        "70-533"
+      ]
     },
     {
       "slug": "designscomputeinfra-2",
@@ -536,7 +651,12 @@
         "70-533"
       ],
       "date": "2018-03-28",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "compute",
+        "70-535",
+        "70-533"
+      ]
     },
     {
       "slug": "iacunittestpester",
@@ -554,7 +674,12 @@
         "pestertest"
       ],
       "date": "2018-03-26",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "devops",
+        "iac",
+        "pestertest"
+      ]
     },
     {
       "slug": "3pdevops-5",
@@ -573,7 +698,13 @@
         "sonarqube"
       ],
       "date": "2018-03-20",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "devops",
+        "newit",
+        "codequality",
+        "sonarqube"
+      ]
     },
     {
       "slug": "3pdevops-4",
@@ -592,7 +723,13 @@
         "sonarqube"
       ],
       "date": "2018-03-19",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "devops",
+        "newit",
+        "codequality",
+        "sonarqube"
+      ]
     },
     {
       "slug": "vstsbuildrel",
@@ -611,7 +748,13 @@
         "cicd"
       ],
       "date": "2018-03-05",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "iac",
+        "devops",
+        "vsts",
+        "cicd"
+      ]
     },
     {
       "slug": "3pdevops-3",
@@ -630,7 +773,13 @@
         "newit"
       ],
       "date": "2018-02-23",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "vsts",
+        "cicd",
+        "devops",
+        "newit"
+      ]
     },
     {
       "slug": "iaccicdgithub",
@@ -649,7 +798,13 @@
         "cicd"
       ],
       "date": "2018-02-19",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "iac",
+        "devops",
+        "vsts",
+        "cicd"
+      ]
     },
     {
       "slug": "3pdevops-2",
@@ -666,7 +821,11 @@
         "newit"
       ],
       "date": "2018-01-31",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "devops",
+        "newit"
+      ]
     },
     {
       "slug": "3pdevops-1",
@@ -683,7 +842,11 @@
         "newit"
       ],
       "date": "2018-01-29",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "devops",
+        "newit"
+      ]
     },
     {
       "slug": "vmbackup",
@@ -700,7 +863,11 @@
         "backup"
       ],
       "date": "2018-01-25",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure",
+        "backup"
+      ]
     },
     {
       "slug": "azurearchivestoragega",
@@ -718,7 +885,11 @@
         "backup"
       ],
       "date": "2018-01-19",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure",
+        "backup"
+      ]
     },
     {
       "slug": "docker-3",
@@ -736,7 +907,12 @@
         "azure"
       ],
       "date": "2018-01-18",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "container",
+        "docker",
+        "azure"
+      ]
     },
     {
       "slug": "vscode-tips",
@@ -753,7 +929,10 @@
         "iac"
       ],
       "date": "2018-01-05",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "iac"
+      ]
     },
     {
       "slug": "autoshutdownarmvm",
@@ -770,7 +949,11 @@
         "iac"
       ],
       "date": "2018-01-04",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure",
+        "iac"
+      ]
     },
     {
       "slug": "docker-2",
@@ -787,7 +970,11 @@
         "docker"
       ],
       "date": "2017-12-27",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "container",
+        "docker"
+      ]
     },
     {
       "slug": "docker-1",
@@ -804,7 +991,11 @@
         "docker"
       ],
       "date": "2017-12-22",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "container",
+        "docker"
+      ]
     },
     {
       "slug": "dockerforwindows",
@@ -821,7 +1012,11 @@
         "container"
       ],
       "date": "2017-12-22",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "docker",
+        "container"
+      ]
     },
     {
       "slug": "newit",
@@ -839,7 +1034,12 @@
         "devops"
       ],
       "date": "2017-12-20",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "newit",
+        "azure",
+        "devops"
+      ]
     },
     {
       "slug": "container",
@@ -858,7 +1058,13 @@
         "newit"
       ],
       "date": "2017-12-20",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "container",
+        "docker",
+        "azure",
+        "newit"
+      ]
     },
     {
       "slug": "devopsproject",
@@ -877,7 +1083,12 @@
         "vsts"
       ],
       "date": "2017-12-08",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure",
+        "devops",
+        "vsts"
+      ]
     },
     {
       "slug": "iac101-3",
@@ -895,7 +1106,12 @@
         "devops"
       ],
       "date": "2017-12-04",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure",
+        "iac",
+        "devops"
+      ]
     },
     {
       "slug": "newazurefreeaccount",
@@ -911,7 +1127,10 @@
         "azure"
       ],
       "date": "2017-12-02",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure"
+      ]
     },
     {
       "slug": "iac101-2",
@@ -929,7 +1148,12 @@
         "devops"
       ],
       "date": "2017-11-02",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure",
+        "iac",
+        "devops"
+      ]
     },
     {
       "slug": "iac101-1",
@@ -947,7 +1171,12 @@
         "devops"
       ],
       "date": "2017-10-17",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure",
+        "iac",
+        "devops"
+      ]
     },
     {
       "slug": "powershellincloudshell",
@@ -964,7 +1193,11 @@
         "powershell"
       ],
       "date": "2017-08-31",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure",
+        "powershell"
+      ]
     },
     {
       "slug": "gitvstfvc",
@@ -981,7 +1214,11 @@
         "devops"
       ],
       "date": "2017-08-04",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "git",
+        "devops"
+      ]
     },
     {
       "slug": "gitwithvsts-1",
@@ -999,7 +1236,12 @@
         "devops"
       ],
       "date": "2017-08-02",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "vsts",
+        "git",
+        "devops"
+      ]
     },
     {
       "slug": "psserviceregion",
@@ -1015,7 +1257,10 @@
         "powershell"
       ],
       "date": "2017-07-30",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "powershell"
+      ]
     },
     {
       "slug": "gitwithvsts",
@@ -1033,7 +1278,12 @@
         "devops"
       ],
       "date": "2017-07-27",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "vsts",
+        "git",
+        "devops"
+      ]
     },
     {
       "slug": "armtemplates101",
@@ -1050,7 +1300,11 @@
         "devops"
       ],
       "date": "2017-07-12",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "iac",
+        "devops"
+      ]
     },
     {
       "slug": "azurevnetusingcli",
@@ -1068,7 +1322,12 @@
         "70-533"
       ],
       "date": "2017-07-04",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "vnet",
+        "cli",
+        "70-533"
+      ]
     },
     {
       "slug": "azuresqlusingcli",
@@ -1086,7 +1345,12 @@
         "70-533"
       ],
       "date": "2017-07-04",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "azure-sql",
+        "cli",
+        "70-533"
+      ]
     },
     {
       "slug": "petyaransomware",
@@ -1102,7 +1366,8 @@
         "ransomware"
       ],
       "date": "2017-07-03",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": []
     },
     {
       "slug": "dscconfiguration101",
@@ -1120,7 +1385,12 @@
         "devops"
       ],
       "date": "2016-12-01",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "dsc",
+        "configuration-management",
+        "devops"
+      ]
     },
     {
       "slug": "vsts101",
@@ -1138,7 +1408,12 @@
         "devops"
       ],
       "date": "2016-12-01",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "vsts",
+        "git",
+        "devops"
+      ]
     },
     {
       "slug": "azureapiversions",
@@ -1154,7 +1429,10 @@
         "powershell"
       ],
       "date": "2016-12-01",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "powershell"
+      ]
     },
     {
       "slug": "iac-vnet",
@@ -1172,7 +1450,12 @@
         "devops"
       ],
       "date": "2016-10-14",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "vnet",
+        "iac",
+        "devops"
+      ]
     },
     {
       "slug": "psdsc",
@@ -1190,7 +1473,12 @@
         "devops"
       ],
       "date": "2016-07-26",
-      "featured": false
+      "featured": false,
+      "taxonomyIds": [
+        "dsc",
+        "configuration-management",
+        "devops"
+      ]
     }
   ]
 }
