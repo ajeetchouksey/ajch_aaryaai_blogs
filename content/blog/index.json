@@ -1,4 +1,5 @@
 {
+  "schema": "blog-index@1",
   "posts": [
     {
       "slug": "the-degradation-ladder",
