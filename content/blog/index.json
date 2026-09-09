@@ -24,7 +24,8 @@
       "taxonomyIds": [
         "degradation-ladder",
         "ai-architecture",
-        "cca-f"
+        "cca-f",
+        "domain-boundary"
       ]
     },
     {
@@ -75,7 +76,11 @@
       "image": "/content/blog/images/foundry_two_boundary_model.png",
       "taxonomyIds": [
         "azure-ai-foundry",
-        "ai-architecture"
+        "ai-architecture",
+        "boring-interface",
+        "domain-boundary",
+        "azure-openai",
+        "responsible-ai"
       ]
     },
     {
@@ -103,7 +108,11 @@
         "agents",
         "llmops",
         "production",
-        "observability"
+        "evaluation",
+        "observability",
+        "domain-boundary",
+        "prompt-engineering",
+        "code-review"
       ]
     },
     {
@@ -129,10 +138,13 @@
       "draft": false,
       "taxonomyIds": [
         "ai-architecture",
+        "multi-agent",
+        "privacy",
         "production",
         "llm",
         "agents",
-        "observability"
+        "observability",
+        "domain-boundary"
       ]
     },
     {
@@ -189,7 +201,10 @@
         "enterprise-ai",
         "architecture",
         "llm",
-        "agents"
+        "agents",
+        "ai-architecture",
+        "copilot-studio",
+        "knowledge-base"
       ]
     },
     {
@@ -239,7 +254,9 @@
       "draft": false,
       "taxonomyIds": [
         "context-budget-rule",
-        "cca-f"
+        "cca-f",
+        "ai-architecture",
+        "code-review"
       ]
     },
     {
@@ -288,7 +305,9 @@
       "featured": false,
       "draft": false,
       "taxonomyIds": [
+        "governance",
         "devops",
+        "branch-protection",
         "platform-engineering"
       ]
     },
@@ -336,7 +355,9 @@
       "draft": false,
       "taxonomyIds": [
         "agents",
-        "architecture"
+        "architecture",
+        "ai-architecture",
+        "human-in-the-loop"
       ]
     },
     {
@@ -440,6 +461,7 @@
       "date": "2019-12-02",
       "featured": false,
       "taxonomyIds": [
+        "security",
         "architecture"
       ]
     },
@@ -563,7 +585,8 @@
       "date": "2018-05-31",
       "featured": false,
       "taxonomyIds": [
-        "vsts"
+        "vsts",
+        "azure-sql"
       ]
     },
     {
@@ -656,7 +679,8 @@
       "taxonomyIds": [
         "compute",
         "70-535",
-        "70-533"
+        "70-533",
+        "azure-sql"
       ]
     },
     {
@@ -704,7 +728,10 @@
         "devops",
         "newit",
         "codequality",
-        "sonarqube"
+        "sonarqube",
+        "code-review",
+        "ide-integration",
+        "developer-productivity"
       ]
     },
     {
@@ -912,7 +939,8 @@
       "taxonomyIds": [
         "container",
         "docker",
-        "azure"
+        "azure",
+        "vscode"
       ]
     },
     {
@@ -932,6 +960,7 @@
       "date": "2018-01-05",
       "featured": false,
       "taxonomyIds": [
+        "vscode",
         "iac"
       ]
     },
@@ -1304,7 +1333,8 @@
       "featured": false,
       "taxonomyIds": [
         "iac",
-        "devops"
+        "devops",
+        "json-schema"
       ]
     },
     {
