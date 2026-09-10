@@ -56,10 +56,10 @@ Blog content follows a mandatory review-first workflow — this is not a free-fo
 Four subagents implement the workflow above as a strict pipeline. Each has a narrow write scope — respect it even when working manually:
 
 ```
-Content Lead → Tech Writer → AppSec Engineer (hard gate) → Release Engineer
+Content Lead → Tech Writer → AppSec Engineer (pre-build hard gate) → Release Engineer → AppSec Engineer (post-build hard gate)
 ```
 
-- **content-lead** — orchestrator only, never writes files. Turns a request into a Tech Writer brief, runs the security gate, then briefs Release Engineer.
+- **content-lead** — orchestrator only, never writes files. Turns a request into a Tech Writer brief, runs the pre-build security gate, briefs Release Engineer, then runs the post-build security audit before reporting the post as published.
 - **tech-writer** — prose-only, no file I/O. Returns markdown + suggested slug/tags/reading time as a string. Model: inherit.
 - **appsec-engineer** — hard gate, read-only, runs pre-build and post-build. Returns `PASS ✓` or `BLOCK ✗ <reason>` only — never a partial pass. Checks path traversal, slug format, secrets, schema conformance, content policy, and (for this repo) that `content/blog/index.json` entries match `{ slug, title, excerpt, author, date, tags[], category, readingTime, featured, draft }`.
 - **release-engineer** — the only agent that writes to disk, and only inside `content/blog/`. Model: `claude-haiku-4-5-20251001` (deliberately cheap — mechanical file writes, no creative judgment). Validates slug against `^[a-z0-9]+(?:-[a-z0-9]+)*$`, checks for slug collisions, computes reading time as `Math.ceil(wordCount / 200)`, and inserts into `index.json` at the correct date-sorted position (never appends blindly).
